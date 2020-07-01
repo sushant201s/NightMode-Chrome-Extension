@@ -8,8 +8,34 @@
         "48": "icon48.png",
         "128": "icon128.png"
     },
-    "browser_action": {
+    "page_action": {
         "default_icon": "icon16.png",
-        "default_popup": "popup.html"
-    }
+        "default_popup": "popup.html",
+        "default_title": "Night Mode"
+    },
+    "background": {
+        "scripts": [
+            "eventPage.js"
+        ],
+        "persistent": false
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "http://*/*",
+                "https://*/*"
+            ],
+            "js": [
+                "content.js",
+                "jquery.js"
+            ],
+            "css": [
+                "content.css"
+            ]
+        }
+    ],
+    "permissions": [
+        "tabs",
+        "<all_urls>"
+    ]
 }
